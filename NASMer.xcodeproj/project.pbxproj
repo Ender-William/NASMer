@@ -7,13 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB21BF2225C5A7DA0053DA96 /* CompileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21BF2125C5A7DA0053DA96 /* CompileView.swift */; };
 		AB541B0125C16A1500ECEBE2 /* NASMerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */; };
 		AB541B0325C16A1500ECEBE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB541B0225C16A1500ECEBE2 /* ContentView.swift */; };
 		AB541B0525C16A1600ECEBE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0425C16A1600ECEBE2 /* Assets.xcassets */; };
 		AB541B0825C16A1600ECEBE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */; };
+		ABE5B3F325D31778005DA2B4 /* CompileSettingWindowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */; };
+		ABE5B4B725D33298005DA2B4 /* SourceCodeRegexLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B49725D33298005DA2B4 /* SourceCodeRegexLexer.swift */; };
+		ABE5B4B825D33298005DA2B4 /* String+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B49925D33298005DA2B4 /* String+Range.swift */; };
+		ABE5B4B925D33298005DA2B4 /* NSTextView+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B49A25D33298005DA2B4 /* NSTextView+UIKit.swift */; };
+		ABE5B4BA25D33298005DA2B4 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B49B25D33298005DA2B4 /* Types.swift */; };
+		ABE5B4BB25D33298005DA2B4 /* NSMutableAttributedString+Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B49C25D33298005DA2B4 /* NSMutableAttributedString+Tokens.swift */; };
+		ABE5B4BC25D33298005DA2B4 /* Python3Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B49E25D33298005DA2B4 /* Python3Lexer.swift */; };
+		ABE5B4C025D33298005DA2B4 /* ASTVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4A225D33298005DA2B4 /* ASTVisualizer.swift */; };
+		ABE5B4C125D33298005DA2B4 /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4A425D33298005DA2B4 /* Lexer.swift */; };
+		ABE5B4C225D33298005DA2B4 /* Paragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4A525D33298005DA2B4 /* Paragraph.swift */; };
+		ABE5B4C325D33298005DA2B4 /* SyntaxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4A625D33298005DA2B4 /* SyntaxColorTheme.swift */; };
+		ABE5B4C425D33298005DA2B4 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4A725D33298005DA2B4 /* Token.swift */; };
+		ABE5B4C525D33298005DA2B4 /* RegexLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4A825D33298005DA2B4 /* RegexLexer.swift */; };
+		ABE5B4C625D33298005DA2B4 /* SyntaxTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4AA25D33298005DA2B4 /* SyntaxTextView.swift */; };
+		ABE5B4C725D33298005DA2B4 /* SyntaxTextView+TextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4AB25D33298005DA2B4 /* SyntaxTextView+TextViewDelegate.swift */; };
+		ABE5B4C825D33298005DA2B4 /* InnerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4AC25D33298005DA2B4 /* InnerTextView.swift */; };
+		ABE5B4C925D33298005DA2B4 /* TextViewWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4AD25D33298005DA2B4 /* TextViewWrapperView.swift */; };
+		ABE5B4CA25D33298005DA2B4 /* LineNumberLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4AE25D33298005DA2B4 /* LineNumberLayoutManager.swift */; };
+		ABE5B4CB25D33298005DA2B4 /* SyntaxTextViewLayoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4AF25D33298005DA2B4 /* SyntaxTextViewLayoutManager.swift */; };
+		ABE5B4CC25D33298005DA2B4 /* Paragraphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4B025D33298005DA2B4 /* Paragraphs.swift */; };
+		ABE5B4CD25D33298005DA2B4 /* SourceCodeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4B125D33298005DA2B4 /* SourceCodeTheme.swift */; };
+		ABE5B4CE25D33298005DA2B4 /* SourceCodeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4B225D33298005DA2B4 /* SourceCodeToken.swift */; };
+		ABE5B4CF25D33298005DA2B4 /* DefaultSourceCodeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4B425D33298005DA2B4 /* DefaultSourceCodeTheme.swift */; };
+		ABE5B4D025D33298005DA2B4 /* SourceCodeTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4B625D33298005DA2B4 /* SourceCodeTextEditor.swift */; };
+		ABE5B4D325D3A210005DA2B4 /* AssemblyLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4D225D3A210005DA2B4 /* AssemblyLexer.swift */; };
+		ABE5B4E025D580EA005DA2B4 /* FileManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4DF25D580EA005DA2B4 /* FileManagement.swift */; };
+		ABE5B4FA25D97B2E005DA2B4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB21BF2125C5A7DA0053DA96 /* CompileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileView.swift; sourceTree = "<group>"; };
 		AB541AFD25C16A1500ECEBE2 /* NASMer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASMer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASMerApp.swift; sourceTree = "<group>"; };
 		AB541B0225C16A1500ECEBE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -21,6 +50,35 @@
 		AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB541B0925C16A1600ECEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB541B0A25C16A1600ECEBE2 /* NASMer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NASMer.entitlements; sourceTree = "<group>"; };
+		ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileSettingWindowConfig.swift; sourceTree = "<group>"; };
+		ABE5B3F525D31861005DA2B4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ABE5B49725D33298005DA2B4 /* SourceCodeRegexLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeRegexLexer.swift; sourceTree = "<group>"; };
+		ABE5B49925D33298005DA2B4 /* String+Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Range.swift"; sourceTree = "<group>"; };
+		ABE5B49A25D33298005DA2B4 /* NSTextView+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTextView+UIKit.swift"; sourceTree = "<group>"; };
+		ABE5B49B25D33298005DA2B4 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		ABE5B49C25D33298005DA2B4 /* NSMutableAttributedString+Tokens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Tokens.swift"; sourceTree = "<group>"; };
+		ABE5B49E25D33298005DA2B4 /* Python3Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Python3Lexer.swift; sourceTree = "<group>"; };
+		ABE5B4A225D33298005DA2B4 /* ASTVisualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTVisualizer.swift; sourceTree = "<group>"; };
+		ABE5B4A425D33298005DA2B4 /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		ABE5B4A525D33298005DA2B4 /* Paragraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paragraph.swift; sourceTree = "<group>"; };
+		ABE5B4A625D33298005DA2B4 /* SyntaxColorTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxColorTheme.swift; sourceTree = "<group>"; };
+		ABE5B4A725D33298005DA2B4 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		ABE5B4A825D33298005DA2B4 /* RegexLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexLexer.swift; sourceTree = "<group>"; };
+		ABE5B4AA25D33298005DA2B4 /* SyntaxTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxTextView.swift; sourceTree = "<group>"; };
+		ABE5B4AB25D33298005DA2B4 /* SyntaxTextView+TextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SyntaxTextView+TextViewDelegate.swift"; sourceTree = "<group>"; };
+		ABE5B4AC25D33298005DA2B4 /* InnerTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerTextView.swift; sourceTree = "<group>"; };
+		ABE5B4AD25D33298005DA2B4 /* TextViewWrapperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewWrapperView.swift; sourceTree = "<group>"; };
+		ABE5B4AE25D33298005DA2B4 /* LineNumberLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineNumberLayoutManager.swift; sourceTree = "<group>"; };
+		ABE5B4AF25D33298005DA2B4 /* SyntaxTextViewLayoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxTextViewLayoutManager.swift; sourceTree = "<group>"; };
+		ABE5B4B025D33298005DA2B4 /* Paragraphs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paragraphs.swift; sourceTree = "<group>"; };
+		ABE5B4B125D33298005DA2B4 /* SourceCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeTheme.swift; sourceTree = "<group>"; };
+		ABE5B4B225D33298005DA2B4 /* SourceCodeToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeToken.swift; sourceTree = "<group>"; };
+		ABE5B4B425D33298005DA2B4 /* DefaultSourceCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSourceCodeTheme.swift; sourceTree = "<group>"; };
+		ABE5B4B625D33298005DA2B4 /* SourceCodeTextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeTextEditor.swift; sourceTree = "<group>"; };
+		ABE5B4D225D3A210005DA2B4 /* AssemblyLexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyLexer.swift; sourceTree = "<group>"; };
+		ABE5B4DF25D580EA005DA2B4 /* FileManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagement.swift; sourceTree = "<group>"; };
+		ABE5B4F125D719D6005DA2B4 /* NASMer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NASMer-Bridging-Header.h"; sourceTree = "<group>"; };
+		ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,11 +92,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB21BF4425C7DD4E0053DA96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB541AF425C16A1500ECEBE2 = {
 			isa = PBXGroup;
 			children = (
 				AB541AFF25C16A1500ECEBE2 /* NASMer */,
 				AB541AFE25C16A1500ECEBE2 /* Products */,
+				AB21BF4425C7DD4E0053DA96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,12 +119,19 @@
 		AB541AFF25C16A1500ECEBE2 /* NASMer */ = {
 			isa = PBXGroup;
 			children = (
+				ABE5B49625D33297005DA2B4 /* Sourceful */,
 				AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */,
 				AB541B0225C16A1500ECEBE2 /* ContentView.swift */,
+				ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */,
+				AB21BF2125C5A7DA0053DA96 /* CompileView.swift */,
 				AB541B0425C16A1600ECEBE2 /* Assets.xcassets */,
 				AB541B0925C16A1600ECEBE2 /* Info.plist */,
 				AB541B0A25C16A1600ECEBE2 /* NASMer.entitlements */,
 				AB541B0625C16A1600ECEBE2 /* Preview Content */,
+				ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */,
+				ABE5B3F525D31861005DA2B4 /* README.md */,
+				ABE5B4DF25D580EA005DA2B4 /* FileManagement.swift */,
+				ABE5B4F125D719D6005DA2B4 /* NASMer-Bridging-Header.h */,
 			);
 			path = NASMer;
 			sourceTree = "<group>";
@@ -69,6 +142,86 @@
 				AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABE5B49625D33297005DA2B4 /* Sourceful */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5B49725D33298005DA2B4 /* SourceCodeRegexLexer.swift */,
+				ABE5B49825D33298005DA2B4 /* Util */,
+				ABE5B49D25D33298005DA2B4 /* Languages */,
+				ABE5B4A225D33298005DA2B4 /* ASTVisualizer.swift */,
+				ABE5B4A325D33298005DA2B4 /* Model */,
+				ABE5B4A925D33298005DA2B4 /* View */,
+				ABE5B4B125D33298005DA2B4 /* SourceCodeTheme.swift */,
+				ABE5B4B225D33298005DA2B4 /* SourceCodeToken.swift */,
+				ABE5B4B325D33298005DA2B4 /* Themes */,
+				ABE5B4B525D33298005DA2B4 /* SwiftUI */,
+			);
+			name = Sourceful;
+			path = ../../../../Desktop/macos_sourcetext/macos_sourcetext/Sourceful;
+			sourceTree = "<group>";
+		};
+		ABE5B49825D33298005DA2B4 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5B49925D33298005DA2B4 /* String+Range.swift */,
+				ABE5B49A25D33298005DA2B4 /* NSTextView+UIKit.swift */,
+				ABE5B49B25D33298005DA2B4 /* Types.swift */,
+				ABE5B49C25D33298005DA2B4 /* NSMutableAttributedString+Tokens.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		ABE5B49D25D33298005DA2B4 /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5B49E25D33298005DA2B4 /* Python3Lexer.swift */,
+				ABE5B4D225D3A210005DA2B4 /* AssemblyLexer.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
+		ABE5B4A325D33298005DA2B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5B4A425D33298005DA2B4 /* Lexer.swift */,
+				ABE5B4A525D33298005DA2B4 /* Paragraph.swift */,
+				ABE5B4A625D33298005DA2B4 /* SyntaxColorTheme.swift */,
+				ABE5B4A725D33298005DA2B4 /* Token.swift */,
+				ABE5B4A825D33298005DA2B4 /* RegexLexer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABE5B4A925D33298005DA2B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5B4AA25D33298005DA2B4 /* SyntaxTextView.swift */,
+				ABE5B4AB25D33298005DA2B4 /* SyntaxTextView+TextViewDelegate.swift */,
+				ABE5B4AC25D33298005DA2B4 /* InnerTextView.swift */,
+				ABE5B4AD25D33298005DA2B4 /* TextViewWrapperView.swift */,
+				ABE5B4AE25D33298005DA2B4 /* LineNumberLayoutManager.swift */,
+				ABE5B4AF25D33298005DA2B4 /* SyntaxTextViewLayoutManager.swift */,
+				ABE5B4B025D33298005DA2B4 /* Paragraphs.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABE5B4B325D33298005DA2B4 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5B4B425D33298005DA2B4 /* DefaultSourceCodeTheme.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		ABE5B4B525D33298005DA2B4 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5B4B625D33298005DA2B4 /* SourceCodeTextEditor.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,10 +251,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					AB541AFC25C16A1500ECEBE2 = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -140,8 +294,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE5B4CB25D33298005DA2B4 /* SyntaxTextViewLayoutManager.swift in Sources */,
+				ABE5B4D025D33298005DA2B4 /* SourceCodeTextEditor.swift in Sources */,
+				ABE5B4C225D33298005DA2B4 /* Paragraph.swift in Sources */,
 				AB541B0325C16A1500ECEBE2 /* ContentView.swift in Sources */,
+				ABE5B4E025D580EA005DA2B4 /* FileManagement.swift in Sources */,
+				ABE5B4FA25D97B2E005DA2B4 /* DataModel.swift in Sources */,
+				AB21BF2225C5A7DA0053DA96 /* CompileView.swift in Sources */,
+				ABE5B4C125D33298005DA2B4 /* Lexer.swift in Sources */,
+				ABE5B4C925D33298005DA2B4 /* TextViewWrapperView.swift in Sources */,
+				ABE5B4BC25D33298005DA2B4 /* Python3Lexer.swift in Sources */,
+				ABE5B4CF25D33298005DA2B4 /* DefaultSourceCodeTheme.swift in Sources */,
+				ABE5B4D325D3A210005DA2B4 /* AssemblyLexer.swift in Sources */,
+				ABE5B4BB25D33298005DA2B4 /* NSMutableAttributedString+Tokens.swift in Sources */,
+				ABE5B4C425D33298005DA2B4 /* Token.swift in Sources */,
+				ABE5B4C825D33298005DA2B4 /* InnerTextView.swift in Sources */,
+				ABE5B3F325D31778005DA2B4 /* CompileSettingWindowConfig.swift in Sources */,
+				ABE5B4C025D33298005DA2B4 /* ASTVisualizer.swift in Sources */,
+				ABE5B4BA25D33298005DA2B4 /* Types.swift in Sources */,
+				ABE5B4C325D33298005DA2B4 /* SyntaxColorTheme.swift in Sources */,
 				AB541B0125C16A1500ECEBE2 /* NASMerApp.swift in Sources */,
+				ABE5B4C725D33298005DA2B4 /* SyntaxTextView+TextViewDelegate.swift in Sources */,
+				ABE5B4CD25D33298005DA2B4 /* SourceCodeTheme.swift in Sources */,
+				ABE5B4CA25D33298005DA2B4 /* LineNumberLayoutManager.swift in Sources */,
+				ABE5B4CE25D33298005DA2B4 /* SourceCodeToken.swift in Sources */,
+				ABE5B4B825D33298005DA2B4 /* String+Range.swift in Sources */,
+				ABE5B4B925D33298005DA2B4 /* NSTextView+UIKit.swift in Sources */,
+				ABE5B4B725D33298005DA2B4 /* SourceCodeRegexLexer.swift in Sources */,
+				ABE5B4C625D33298005DA2B4 /* SyntaxTextView.swift in Sources */,
+				ABE5B4CC25D33298005DA2B4 /* Paragraphs.swift in Sources */,
+				ABE5B4C525D33298005DA2B4 /* RegexLexer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -254,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -268,7 +450,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NASMer/NASMer.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NASMer/Preview Content\"";
@@ -281,6 +465,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = KuangDa.NASMer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NASMer/NASMer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -290,7 +476,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NASMer/NASMer.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NASMer/Preview Content\"";
@@ -303,6 +491,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = KuangDa.NASMer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NASMer/NASMer-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
