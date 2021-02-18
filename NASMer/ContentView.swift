@@ -10,26 +10,26 @@ import SwiftUI
 import Cocoa
 //import SavannaKit
 //import SourceEditor
-
+import Combine
 
 
 struct ContentView: View {
-    
+
     //这俩是用于刷新组件而使用的
-    @State private var showWindows = true
-    @State private var show = false
+    @State var show = DATAModel.NasmData.show
+    @State var showWindows = DATAModel.NasmData.showWindows
     
     //NASM编译器路径
-    @State var nasmcompath:String = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
+    @State var nasmcompath = DATAModel.NasmData.nasmcompath
     
     //nasm文件的内容
-    @State public var nasminside = ";////可以开心地在这里写汇编啦\n;////本软件使用的编译器是NASM\n;////编码格式为UTF-8"
+    @State var filename = DATAModel.NasmData.filename
     
-    @State var filename = ""
-    
-    @State var commandresult = "" //获取CommandLineTool的返回值
-    
+    //nasm文件的内容
+    @State var nasminside = DATAModel.NasmData.nasminside
 
+    @State var commandresult = DATAModel.NasmData.commandresult
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center){
@@ -136,11 +136,7 @@ struct ContentView: View {
                         let directoryURL = URL(fileURLWithPath: Saver,isDirectory: true)
                         
                         print(directoryURL)
-                        
-                        
-                        
-                        
-                        
+
                         commandresult = Saver
                         print(commandresult)
                         

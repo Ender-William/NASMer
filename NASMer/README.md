@@ -1,6 +1,6 @@
 [TOC]
 
-
+---
 
 # NASMer GitHub文件结构关键内容说明
 
@@ -34,11 +34,13 @@
 >
 > Products
 
-## AssemblyLexer.swift 
+---
+
+## AssemblyLexer.swift
 
 AssemblyLexer.swift 文件里面包含了有关Assembly语言的关键文字，高亮组件会根据这个文件的内容对ASM代码进行高亮标注。
 
-
+---
 
 ## DefaultSourceCodeTheme.swift
 
@@ -67,6 +69,8 @@ case extensionCode
 ```
 
 这样这个类别才能够被组件正确的识别到。如果我们想要在***==对应编程语言的关键文字==*** 的文件中使用这个高亮类别，我们得要这样做：
+
+---
 
 ### 》在已有的语法高亮文件中添加
 
@@ -234,6 +238,10 @@ if let results = regex?.matches(in: acount, options: [], range: NSRange(location
 }
 ```
 
+
+
+---
+
 ### 》新添加编程语言的语法高亮文件
 
 1. 首先需要在Language文件夹内新建一个Swift文件，文件要统一命名为`LanguageName+Lexer.swift` 这种形式
@@ -273,5 +281,112 @@ public class LanguageLexer: SourceCodeRegexLexer {
 
 之后往里面添加对应的代码就可以了
 
+---
+
 ## ContentView.swift
 
+```swift
+//这俩是用于刷新组件而使用的
+@State private var showWindows = true
+@State private var show = false
+
+//NASM编译器路径
+@State var nasmcompath:String = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
+
+//nasm文件的内容
+@State public var nasminside = ";////可以开心地在这里写汇编啦\n;////本软件使用的编译器是NASM\n;////编码格式为UTF-8"
+
+@State var filename = ""
+
+@State var commandresult = "" //获取CommandLineTool的返回值
+```
+
+这些代码初始化了要使用的变量
+
+我还没想好这里到底应该要怎么做，好多的组件我还没有搞明白，所以这些个变量后期我还会改。
+
+### 打开新窗口
+
+这里先给放出一个我参考的代码样例:
+
+```swift
+import SwiftUI
+import Cocoa
+
+struct ContentView: View {
+    var body: some View {
+        VStack{
+            Spacer()
+            Button("打开新窗口"){
+                let detailView = DetailView()
+
+                let controller = DetailWC(rootView: detailView)
+                controller.window?.title = "新窗口"
+                controller.showWindow(nil)
+            }
+            Spacer()
+            Divider()
+        }
+        .frame(width: 600, height: 500)
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+
+class DetailWC<RootView : View>: NSWindowController {
+    convenience init(rootView: RootView) {
+        let hostingController = NSHostingController(rootView: rootView.frame(width: 400, height: 500))
+        let window = NSWindow(contentViewController: hostingController)
+        window.setContentSize(NSSize(width: 400, height: 500))
+        self.init(window: window)
+    }
+}
+
+struct DetailView: View {
+    var body: some View {
+        VStack{
+            Spacer()
+           Text("我是新窗口")
+            Spacer()
+        }
+    }
+}
+```
+
+////
+
+下面的代码是这次项目当中新建编译设定窗口用到的代码
+
+```swift
+let detailView = CompileView()
+let controller = DetailWC(rootView: detailView)
+controller.window?.title = "NASMer - How to Compile"
+controller.showWindow(nil)
+if (showWindows == true){
+  showWindows = false
+}else{
+  showWindows = true
+}
+```
+
+这部分组件是嵌入在Button当中的，为的是新建一个窗口并给新建的窗口命名。
+
+```swift
+class DetailWC<RootView : View>: NSWindowController {
+    convenience init(rootView: RootView) {
+        let hostingController = NSHostingController(rootView: rootView.frame(width: 400, height: 500))
+        let window = NSWindow(contentViewController: hostingController)
+        window.setContentSize(NSSize(width: 400, height: 500))
+        self.init(window: window)
+    }
+}
+```
+
+这部分文件我保存在了`CompileSettingWindowConfig.swift` 文件里，当然了想保存在`ContentView.swift`文件中也不是不可以主要是想要让代码显得简洁些且便于阅读，所以就单独保存到一个文件中了。
+
+同样的，为了ContentView.swift文件的整洁，我把新建的窗口View：CompileView放入了`CompileView.swift` 

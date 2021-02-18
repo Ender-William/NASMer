@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Combine
+
 
 @main
 struct NASMerApp: App {
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

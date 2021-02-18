@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 //主程序
 struct CompileView: View {
     var body: some View {
