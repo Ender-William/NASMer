@@ -40,7 +40,6 @@
 		AB541B0525C16A1600ECEBE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0425C16A1600ECEBE2 /* Assets.xcassets */; };
 		AB541B0825C16A1600ECEBE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */; };
 		ABE5B3F325D31778005DA2B4 /* CompileSettingWindowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */; };
-		ABE5B4E025D580EA005DA2B4 /* FileManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4DF25D580EA005DA2B4 /* FileManagement.swift */; };
 		ABE5B4FA25D97B2E005DA2B4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,8 +80,6 @@
 		AB541B0925C16A1600ECEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB541B0A25C16A1600ECEBE2 /* NASMer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NASMer.entitlements; sourceTree = "<group>"; };
 		ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileSettingWindowConfig.swift; sourceTree = "<group>"; };
-		ABE5B3F525D31861005DA2B4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		ABE5B4DF25D580EA005DA2B4 /* FileManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagement.swift; sourceTree = "<group>"; };
 		ABE5B4F125D719D6005DA2B4 /* NASMer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NASMer-Bridging-Header.h"; sourceTree = "<group>"; };
 		ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,8 +215,6 @@
 				AB541B0A25C16A1600ECEBE2 /* NASMer.entitlements */,
 				AB541B0625C16A1600ECEBE2 /* Preview Content */,
 				ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */,
-				ABE5B3F525D31861005DA2B4 /* README.md */,
-				ABE5B4DF25D580EA005DA2B4 /* FileManagement.swift */,
 				ABE5B4F125D719D6005DA2B4 /* NASMer-Bridging-Header.h */,
 			);
 			path = NASMer;
@@ -304,7 +299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB541B0325C16A1500ECEBE2 /* ContentView.swift in Sources */,
-				ABE5B4E025D580EA005DA2B4 /* FileManagement.swift in Sources */,
 				ABE5B4FA25D97B2E005DA2B4 /* DataModel.swift in Sources */,
 				AB21F44C25DC7E15006A5236 /* InnerTextView.swift in Sources */,
 				AB21F44D25DC7E15006A5236 /* TextViewWrapperView.swift in Sources */,

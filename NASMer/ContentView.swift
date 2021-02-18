@@ -137,13 +137,12 @@ struct ContentView: View {
                     let chosenfile = ASMSaver.url
                     if (chosenfile != nil){
                         var Saver = chosenfile!.absoluteString //选择后的文件地址
-                        if (nasminside == nil){
-                            Saver.removeFirst(7)
-                            print(Saver)
-                            try! nasminside.write(toFile: Saver, atomically: true, encoding: String.Encoding.utf8)
-                        }else{
-                            commandresult = "The Content can not be nil"
-                        }
+                        
+                        Saver.removeFirst(7)
+                        print(Saver)
+                        try! nasminside.write(toFile: Saver, atomically: true, encoding: String.Encoding.utf8)
+                        commandresult = "Save Successful"
+                        
                     }else{
                         commandresult = "File path can not be nil"
                     }
