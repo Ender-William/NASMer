@@ -31,6 +31,8 @@
 > > CompileView.swift
 > >
 > > CompileSettingWindowConfig.swift
+> >
+> > DataModel.swift
 >
 > Products
 
@@ -390,3 +392,4 @@ class DetailWC<RootView : View>: NSWindowController {
 这部分文件我保存在了`CompileSettingWindowConfig.swift` 文件里，当然了想保存在`ContentView.swift`文件中也不是不可以主要是想要让代码显得简洁些且便于阅读，所以就单独保存到一个文件中了。
 
 同样的，为了ContentView.swift文件的整洁，我把新建的窗口View：CompileView放入了`CompileView.swift` 
+

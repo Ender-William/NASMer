@@ -15,6 +15,8 @@ import Combine
 
 struct ContentView: View {
 
+    //这部分声明了要使用的变量
+    
     //这俩是用于刷新组件而使用的
     @State var show = DATAModel.NasmData.show
     @State var showWindows = DATAModel.NasmData.showWindows
@@ -22,13 +24,15 @@ struct ContentView: View {
     //NASM编译器路径
     @State var nasmcompath = DATAModel.NasmData.nasmcompath
     
-    //nasm文件的内容
+    //
     @State var filename = DATAModel.NasmData.filename
     
     //nasm文件的内容
     @State var nasminside = DATAModel.NasmData.nasminside
 
     @State var commandresult = DATAModel.NasmData.commandresult
+    
+    @State var nasmcomoutputpath = DATAModel.NasmData.nasmcomoutputpath
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -60,7 +64,7 @@ struct ContentView: View {
                         ASMOpener.canChooseDirectories = false
                         ASMOpener.resolvesAliases = true
                         ASMOpener.title = "打开文件"
-                        //myFiledialog.message = message
+                        ASMOpener.allowedFileTypes = ["asm","nas"]
                         ASMOpener.runModal()
                     let chosenfile = ASMOpener.url
                         if (chosenfile != nil)
@@ -128,30 +132,23 @@ struct ContentView: View {
                         ASMSaver.title = "保存文件"
                         ASMSaver.showsTagField = false
                         //ASMSaver.nameFieldStringValue = "Untitle"+".asm"
+                        ASMSaver.message = "请选择一个文件夹来保存文件"
                         ASMSaver.runModal()
                     let chosenfile = ASMSaver.url
                     if (chosenfile != nil){
-                        let Saver = chosenfile!.absoluteString //选择后的文件地址
-                        let directory = FileManager.default.currentDirectoryPath
-                        let directoryURL = URL(fileURLWithPath: Saver,isDirectory: true)
-                        
-                        print(directoryURL)
-
-                        commandresult = Saver
-                        print(commandresult)
-                        
-                        do{
-                            try! nasminside.write(toFile: Saver, atomically:  true , encoding: String.Encoding.utf8)
-
-                        }catch{
-                            
+                        var Saver = chosenfile!.absoluteString //选择后的文件地址
+                        if (nasminside == nil){
+                            Saver.removeFirst(7)
+                            print(Saver)
+                            try! nasminside.write(toFile: Saver, atomically: true, encoding: String.Encoding.utf8)
+                        }else{
+                            commandresult = "The Content can not be nil"
                         }
-                        
-                        
                     }else{
-                        print("Nil")
+                        commandresult = "File path can not be nil"
                     }
                 }
+                
                 
                 Button("导出编译文件"){
                     
@@ -170,14 +167,13 @@ struct ContentView: View {
                 TextField(nasmcompath, text: $nasmcompath)
                     .frame(width: 670, height: 30,alignment:.center)
             }
-            
             //SourceCodeTextEditor组件，用来输入程序源码的部分
             //这个组件是使用开源文本编辑软件中的一部分，用来显示具体的程序行数以及语法高亮
             //原程序中只有Java，JS，Python以及Swift语言的高亮格式
             //通过分析这些文件的组成方式，新建了一个Assembly语言的高亮格式文件
             //这里使用if...else...语句是为了在从文件中打开并加载文件内容后能够让组件正确显示出来文件内容的
             //如果不实用这个语句就无法完成组件的刷新
-            //这个应该是原程序的问题，那个开源软件也是不能完成内容的刷新
+            //这个应该是原程序的问题，那个开源软件也是不能完成View的刷新
             if(showWindows == true){
                 SourceCodeTextEditor(text: $nasminside)
                 //TextEditor(text:$nasminside)

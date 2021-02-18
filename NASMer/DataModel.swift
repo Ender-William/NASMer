@@ -17,10 +17,21 @@ class DATAModel{
         static let nasmcompath:String = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
 
         //nasm文件的内容
-        static let nasminside = ";////可以开心地在这里写汇编啦\n;////本软件使用的编译器是NASM\n;////编码格式为UTF-8"
+        static let nasminside = ";////可以愉快地在这里写汇编啦\n;////本软件使用的编译器是NASM\n;////编码格式为UTF-8"
 
         static let filename = ""
 
-        static let commandresult = "" //获取CommandLineTool的返回值
+        
+        //获取CommandLineTool的返回值
+        static let commandresult = ""
+        
+        //编译器的编译格式
+        static let CompileFormatPicker = ""
+        
+        //编译后的文件的输出地址
+        static let nasmcomoutputpath = ""
+        
+        //如何来编译文件
+        static let HowToCompile = ""
     }
 }

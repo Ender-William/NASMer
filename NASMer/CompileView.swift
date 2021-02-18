@@ -62,7 +62,7 @@ struct CompileFormatPicker: View {
 
 //nasm编译器路径控件
 struct NasmOutputPath: View {
-    @State var nasmcomoutputpath:String = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
+    @State var nasmcomoutputpath = DATAModel.NasmData.nasmcomoutputpath
     @State var could_i_edit = true
     var body: some View {
         VStack(alignment:.leading) {
