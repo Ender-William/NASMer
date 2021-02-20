@@ -21,6 +21,8 @@ class DATAModel{
 
         static let filename = ""
 
+        //文件地址
+        static let Openfilepath = ""
         
         //获取CommandLineTool的返回值
         static let commandresult = ""
@@ -34,7 +36,7 @@ class DATAModel{
         //如何来编译文件
         static let HowToCompile = ""
         
-        //
+        //调用nasm编译器的shell命令
         static let ShellCommand = ""
     }
     

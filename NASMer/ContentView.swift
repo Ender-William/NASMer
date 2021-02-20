@@ -34,6 +34,9 @@ struct ContentView: View {
     
     @State var nasmcomoutputpath = DATAModel.NasmData.nasmcomoutputpath
     
+    //文件地址
+    @State var Openfilepath = DATAModel.NasmData.Openfilepath
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center){
@@ -95,6 +98,7 @@ struct ContentView: View {
                                         var printPath = TheFile
                                         printPath.removeFirst(7)
                                         commandresult = DATAModel.CommandResult.OpenFilePath + printPath
+                                        Openfilepath = printPath
                                         //print(dataArray)
                                         
                                     }else{
@@ -158,7 +162,9 @@ struct ContentView: View {
                 
                 
                 Button("导出编译文件"){
-                    
+                    let ShellCommand = "sudo nasm -f bin " + Openfilepath
+                    //runShell(["sudo -s"])
+                    runShell([ShellCommand])
                 }
             }
             .frame(width:670,alignment: .leading)
