@@ -17,7 +17,7 @@ class DATAModel{
         static let nasmcompath:String = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
 
         //nasm文件的内容
-        static let nasminside = ";////可以愉快地在这里写汇编啦\n;////本软件使用的编译器是NASM\n;////编码格式为UTF-8"
+        static let nasminside = ";////可以愉快地在这里写汇编了\n;////本软件使用的编译器是NASM\n;////编码格式为UTF-8"
 
         static let filename = ""
 
@@ -33,5 +33,15 @@ class DATAModel{
         
         //如何来编译文件
         static let HowToCompile = ""
+        
+        //
+        static let ShellCommand = ""
+    }
+    
+    
+    struct CommandResult {
+        static let OpenFilePath = "[Operation Message: File Path]"
+        
+        static let SaveFilePath = "[Operation Message: Save path of file]"
     }
 }

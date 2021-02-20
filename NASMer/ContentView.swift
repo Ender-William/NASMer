@@ -92,6 +92,9 @@ struct ContentView: View {
                                         nasminside = String(readString!)
                                         print("nasminside: \(nasminside)")
                                         commandresult = "Read Successful!"
+                                        var printPath = TheFile
+                                        printPath.removeFirst(7)
+                                        commandresult = DATAModel.CommandResult.OpenFilePath + printPath
                                         //print(dataArray)
                                         
                                     }else{
@@ -131,7 +134,7 @@ struct ContentView: View {
                         ASMSaver.worksWhenModal = true
                         ASMSaver.title = "保存文件"
                         ASMSaver.showsTagField = false
-                        //ASMSaver.nameFieldStringValue = "Untitle"+".asm"
+                        ASMSaver.nameFieldStringValue = "Untitle"+".asm"
                         ASMSaver.message = "请选择一个文件夹来保存文件"
                         ASMSaver.runModal()
                     let chosenfile = ASMSaver.url
@@ -140,9 +143,14 @@ struct ContentView: View {
                         
                         Saver.removeFirst(7)
                         print(Saver)
-                        try! nasminside.write(toFile: Saver, atomically: true, encoding: String.Encoding.utf8)
-                        commandresult = "Save Successful"
                         
+                        do {
+                            try nasminside.write(toFile: Saver, atomically: true, encoding: String.Encoding.utf8)
+                            commandresult = "Save Successful"
+                        }catch{
+                            commandresult = "File did not save"
+                        }
+   
                     }else{
                         commandresult = "File path can not be nil"
                     }
@@ -155,10 +163,14 @@ struct ContentView: View {
             }
             .frame(width:670,alignment: .leading)
             
+            
+            
             Text("Design for editing and compiling assembly")
                 .font(.subheadline)
                 .foregroundColor(Color.white)
         
+            
+            
             if(showWindows == true){
                 TextField(nasmcompath, text: $nasmcompath)
                     .frame(width: 670, height: 30,alignment:.center)
@@ -192,11 +204,12 @@ struct ContentView: View {
             
             
         
-            TextEditor(text: $commandresult)
+            TextEditor(text: .constant(commandresult)) //使用了text: .constant()可以有效地禁止编辑TextEditor的内容
                 .frame(width: 670, height:70 ,alignment:.center)
                 .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.white)
                 .font(.custom("Monaco", size: 14))
+                
                 
             
         }

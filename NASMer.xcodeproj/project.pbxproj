@@ -35,6 +35,7 @@
 		AB21F45225DC7E15006A5236 /* SourceCodeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21F43525DC7E15006A5236 /* SourceCodeToken.swift */; };
 		AB21F45325DC7E15006A5236 /* DefaultSourceCodeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21F43725DC7E15006A5236 /* DefaultSourceCodeTheme.swift */; };
 		AB21F45425DC7E15006A5236 /* SourceCodeTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21F43925DC7E15006A5236 /* SourceCodeTextEditor.swift */; };
+		AB21F45C25E0FEDF006A5236 /* TerminalTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21F45B25E0FEDF006A5236 /* TerminalTask.swift */; };
 		AB541B0125C16A1500ECEBE2 /* NASMerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */; };
 		AB541B0325C16A1500ECEBE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB541B0225C16A1500ECEBE2 /* ContentView.swift */; };
 		AB541B0525C16A1600ECEBE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0425C16A1600ECEBE2 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		AB21F43525DC7E15006A5236 /* SourceCodeToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeToken.swift; sourceTree = "<group>"; };
 		AB21F43725DC7E15006A5236 /* DefaultSourceCodeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSourceCodeTheme.swift; sourceTree = "<group>"; };
 		AB21F43925DC7E15006A5236 /* SourceCodeTextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeTextEditor.swift; sourceTree = "<group>"; };
+		AB21F45B25E0FEDF006A5236 /* TerminalTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTask.swift; sourceTree = "<group>"; };
 		AB541AFD25C16A1500ECEBE2 /* NASMer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASMer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASMerApp.swift; sourceTree = "<group>"; };
 		AB541B0225C16A1500ECEBE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				AB541B0625C16A1600ECEBE2 /* Preview Content */,
 				ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */,
 				ABE5B4F125D719D6005DA2B4 /* NASMer-Bridging-Header.h */,
+				AB21F45B25E0FEDF006A5236 /* TerminalTask.swift */,
 			);
 			path = NASMer;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				AB21F43D25DC7E15006A5236 /* Types.swift in Sources */,
 				AB21F43A25DC7E15006A5236 /* SourceCodeRegexLexer.swift in Sources */,
 				AB21F43B25DC7E15006A5236 /* String+Range.swift in Sources */,
+				AB21F45C25E0FEDF006A5236 /* TerminalTask.swift in Sources */,
 				AB21F44725DC7E15006A5236 /* SyntaxColorTheme.swift in Sources */,
 				AB21F44E25DC7E15006A5236 /* LineNumberLayoutManager.swift in Sources */,
 				AB21F44225DC7E15006A5236 /* JavaLexer.swift in Sources */,
