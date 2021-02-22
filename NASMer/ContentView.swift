@@ -173,7 +173,7 @@ struct ContentView: View {
                 
                 
                 Button("导出编译文件"){
-                    let ShellCommand = "sudo nasm -f bin ~" + Openfilepath
+                    let ShellCommand = "nasm -f bin ~" + Openfilepath
                     //runShell(["sudo -"])
                     //runShell("sudo -s")
                     runShell("william")
