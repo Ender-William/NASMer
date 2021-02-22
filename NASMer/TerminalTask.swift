@@ -18,20 +18,21 @@ func runShell(_ command: String) -> Int32 {
  return task.terminationStatus
 }
 */
- 
+
 @discardableResult
-func runShell(_ args: [String]) -> String {
-    let task = Process()
-    task.launchPath = "/usr/bin/base"
-    task.arguments = args
-
-    let pipe = Pipe()
-    task.standardOutput = pipe
-    task.launch()
-    task.waitUntilExit()
-
-    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+func runShell(_ command: String) -> String {
     
-    return output;
+    let task = Process()
+    let pipe = Pipe()
+    
+    task.standardOutput = pipe
+    task.standardError = pipe
+    task.arguments = [command]
+    task.launchPath = "/bin/zsh"
+    task.launch()
+    
+    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+    let output = String(data: data, encoding: .utf8)!
+    
+    return output
 }

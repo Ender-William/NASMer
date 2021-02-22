@@ -15,6 +15,7 @@ import Combine
 
 struct ContentView: View {
 
+    
     //这部分声明了要使用的变量
     
     //这俩是用于刷新组件而使用的
@@ -130,6 +131,9 @@ struct ContentView: View {
                         showWindows = true
                     }
                 }
+                .keyboardShortcut("o", modifiers: [.command])
+                
+                
                 
                 
                 Button("保存"){
@@ -159,13 +163,19 @@ struct ContentView: View {
                         commandresult = "File path can not be nil"
                     }
                 }
+                .keyboardShortcut("s",modifiers: [.command])
+                
+                
                 
                 
                 Button("导出编译文件"){
-                    let ShellCommand = "sudo nasm -f bin " + Openfilepath
-                    //runShell(["sudo -s"])
-                    runShell([ShellCommand])
+                    let ShellCommand = "nasm -f bin " + Openfilepath
+                    //runShell(["sudo -"])
+                    let Shelloutput = runShell(ShellCommand)
+                    commandresult = Shelloutput
                 }
+                .keyboardShortcut("e", modifiers: [.command])
+                
             }
             .frame(width:670,alignment: .leading)
             
