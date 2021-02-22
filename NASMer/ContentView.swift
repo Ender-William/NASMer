@@ -14,7 +14,7 @@ import Combine
 
 
 struct ContentView: View {
-
+    
     
     //这部分声明了要使用的变量
     
@@ -41,8 +41,29 @@ struct ContentView: View {
     @State var ShellPath = DATAModel.NasmData.ShellPath
     
     
-    var body: some View {
+    private func runShell(_ command: String, needAuthorize: Bool) -> (isSuccess: Bool, executeResult: String?) {
+        let scriptWithAuthorization = """
+        do shell script "\(command)" with administrator privileges
+        """
         
+        let scriptWithoutAuthorization = """
+        do shell script "\(command)"
+        """
+        
+        let script = needAuthorize ? scriptWithAuthorization : scriptWithoutAuthorization
+        let appleScript = NSAppleScript(source: script)
+        
+        var error: NSDictionary? = nil
+        let result = appleScript!.executeAndReturnError(&error)
+        if let error = error {
+            commandresult = ("执行 \n\(command)\n命令出错:\n\(error)")
+            return (false, nil)
+        }
+        
+        return (true, result.stringValue)
+    }
+    
+    var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center){
                 
@@ -103,6 +124,7 @@ struct ContentView: View {
                                         var printPath = TheFile
                                         printPath.removeFirst(7)
                                         commandresult = DATAModel.CommandResult.OpenFilePath + printPath
+                                        //Openfilepath = TheFile
                                         Openfilepath = printPath
                                         //print(dataArray)
                                         
@@ -171,15 +193,17 @@ struct ContentView: View {
                 
                 
                 
-                
                 Button("导出编译文件"){
-                    let ShellCommand = "nasm -f bin ~" + Openfilepath
+                    let ShellCommand = "sudo nasm -f bin " + Openfilepath
                     //runShell(["sudo -"])
+                    //runShell("chsh -s /bin/zsh")
                     //runShell("sudo -s")
-                    runShell("william")
-                    let Shelloutput = runShell(ShellCommand)
+                    //runShell("william")
+                    let Shelloutput = runShell(ShellCommand, needAuthorize: false)
                     print(Shelloutput)
-                    commandresult = Shelloutput
+                    //commandresult = String(Shelloutput)
+                    //NSAppleScript(source: "do shell script \"ShellCommand\" with administrator " + "privileges")!.executeAndReturnError(nil)
+                    //commandresult = runShell(["nasm","-f","bin",Openfilepath])
                     if (showWindows == true){
                         showWindows = false
                     }else{

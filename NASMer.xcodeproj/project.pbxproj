@@ -42,6 +42,7 @@
 		AB541B0825C16A1600ECEBE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */; };
 		ABE5B3F325D31778005DA2B4 /* CompileSettingWindowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */; };
 		ABE5B4FA25D97B2E005DA2B4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */; };
+		ABF87CEF25E3EE5F0049351F /* ExtShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF87CEE25E3EE5F0049351F /* ExtShell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		ABE5B3F225D31778005DA2B4 /* CompileSettingWindowConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileSettingWindowConfig.swift; sourceTree = "<group>"; };
 		ABE5B4F125D719D6005DA2B4 /* NASMer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NASMer-Bridging-Header.h"; sourceTree = "<group>"; };
 		ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		ABF87CEE25E3EE5F0049351F /* ExtShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtShell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			children = (
 				AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */,
 				AB541B0225C16A1500ECEBE2 /* ContentView.swift */,
+				ABF87CEE25E3EE5F0049351F /* ExtShell.swift */,
 				ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */,
 				AB21BF2125C5A7DA0053DA96 /* CompileView.swift */,
 				AB541B0425C16A1600ECEBE2 /* Assets.xcassets */,
@@ -331,6 +334,7 @@
 				AB21F45125DC7E15006A5236 /* SourceCodeTheme.swift in Sources */,
 				AB21F45325DC7E15006A5236 /* DefaultSourceCodeTheme.swift in Sources */,
 				AB21F43F25DC7E15006A5236 /* Python3Lexer.swift in Sources */,
+				ABF87CEF25E3EE5F0049351F /* ExtShell.swift in Sources */,
 				AB21F44B25DC7E15006A5236 /* SyntaxTextView+TextViewDelegate.swift in Sources */,
 				AB21F44525DC7E15006A5236 /* Lexer.swift in Sources */,
 				AB21F43C25DC7E15006A5236 /* NSTextView+UIKit.swift in Sources */,
