@@ -38,7 +38,11 @@ struct ContentView: View {
     //文件地址
     @State var Openfilepath = DATAModel.NasmData.Openfilepath
     
+    @State var ShellPath = DATAModel.NasmData.ShellPath
+    
+    
     var body: some View {
+        
         VStack(alignment: .leading) {
             HStack(alignment: .center){
                 
@@ -169,10 +173,18 @@ struct ContentView: View {
                 
                 
                 Button("导出编译文件"){
-                    let ShellCommand = "nasm -f bin " + Openfilepath
+                    let ShellCommand = "sudo nasm -f bin ~" + Openfilepath
                     //runShell(["sudo -"])
+                    //runShell("sudo -s")
+                    runShell("william")
                     let Shelloutput = runShell(ShellCommand)
+                    print(Shelloutput)
                     commandresult = Shelloutput
+                    if (showWindows == true){
+                        showWindows = false
+                    }else{
+                        showWindows = true
+                    }
                 }
                 .keyboardShortcut("e", modifiers: [.command])
                 
@@ -188,11 +200,21 @@ struct ContentView: View {
             
             
             if(showWindows == true){
-                TextField(nasmcompath, text: $nasmcompath)
-                    .frame(width: 670, height: 30,alignment:.center)
+                HStack{
+                    TextField(ShellPath, text: $ShellPath)
+                        .frame(width: 332, height: 30,alignment:.center)
+                    TextField(nasmcompath, text: $nasmcompath)
+                        .frame(width: 332, height: 30,alignment:.center)
+                    
+                }
             }else{
-                TextField(nasmcompath, text: $nasmcompath)
-                    .frame(width: 670, height: 30,alignment:.center)
+                HStack{
+                    TextField(ShellPath, text: $ShellPath)
+                        .frame(width: 332, height: 30,alignment:.center)
+                    TextField(nasmcompath, text: $nasmcompath)
+                        .frame(width: 332, height: 30,alignment:.center)
+                    
+                }
             }
             //SourceCodeTextEditor组件，用来输入程序源码的部分
             //这个组件是使用开源文本编辑软件中的一部分，用来显示具体的程序行数以及语法高亮

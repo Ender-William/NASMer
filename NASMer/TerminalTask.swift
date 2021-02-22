@@ -27,8 +27,8 @@ func runShell(_ command: String) -> String {
     
     task.standardOutput = pipe
     task.standardError = pipe
-    task.arguments = [command]
-    task.launchPath = "/bin/zsh"
+    task.arguments = ["-c",command]
+    task.launchPath = DATAModel.NasmData.ShellPath
     task.launch()
     
     let data = pipe.fileHandleForReading.readDataToEndOfFile()
