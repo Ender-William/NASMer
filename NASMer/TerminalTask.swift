@@ -8,66 +8,37 @@
 import Foundation
 import Cocoa
 import Combine
-/*
-@discardableResult
-func runShell(_ command: String) -> Int32 {
- let task = Process()
- task.launchPath = "/bin/bash"
- task.arguments = [command]
- task.launch()
- task.waitUntilExit()
- return task.terminationStatus
+
+/*---------------------------------------------------------------------
+*
+*   执行脚本命令
+*
+*   输入:command【命令行内容】
+*   输入:needAutherize【执行脚本时是否需要sudo授权】
+*
+*   返回:Returns {Bool,String?,String}【程序的执行结果】
+*
+*   创建日期:2021-01-22
+*
+---------------------------------------------------------------------*/
+func runShell(_ command: String, needAuthorize: Bool) -> (isSuccess: Bool, executeResult: String?,commandreturn: String) {
+    let scriptWithAuthorization = """
+    do shell script "\(command)" with administrator privileges
+    """
+    
+    let scriptWithoutAuthorization = """
+    do shell script "\(command)"
+    """
+    
+    let script = needAuthorize ? scriptWithAuthorization : scriptWithoutAuthorization
+    let appleScript = NSAppleScript(source: script)
+    
+    var error: NSDictionary? = nil
+    let result = appleScript!.executeAndReturnError(&error)
+    if let error = error {
+        let commandReturn = ("执行 \n\(command)\n命令出错:\n\(error)")
+        return (false, nil, commandReturn)
+    }
+    
+    return (true, result.stringValue, "Compile Finish")
 }
-*/
-/*
-@discardableResult
-func runShell(_ command: String) -> String {
-    
-    let task = Process()
-    let pipe = Pipe()
-    
-    task.launchPath = DATAModel.NasmData.ShellPath
-    task.standardOutput = pipe
-    task.standardError = pipe
-    task.arguments = ["-c",command]
-    task.launch()
-    
-    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output = String(data: data, encoding: .utf8)!
-    
-    
-    
-    return output
-}
- */
-
-/*
-@discardableResult
-func runShell(_ args: [String]) -> String {
-    let task = Process()
-    task.launchPath = "/usr/bin/bash"
-    task.arguments = args
-
-    let pipe = Pipe()
-    task.standardOutput = pipe
-    task.launch()
-    task.waitUntilExit()
-
-    let data = pipe.fileHandleForReading.readDataToEndOfFile()
-    let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-
-    return output;
-}
-
-//print(shell(["ls", "-al"]));
-*/
-
-/// 执行脚本命令
-///
-/// - Parameters:
-///   - command: 命令行内容
-///   - needAuthorize: 执行脚本时,是否需要 sudo 授权
-/// - Returns: 执行结果
-
-
-

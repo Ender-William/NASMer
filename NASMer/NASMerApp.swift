@@ -1,10 +1,12 @@
-//
-//  NASMerApp.swift
-//  NASMer
-//
-//  Created by Willian_Kuang on 2021/1/27.
-//
-
+/*----------------------------------------------------
+*   创建日期：2021-01-27
+*   NASMerApp.swift
+*
+*
+*
+*
+*
+ ---------------------------------------------------*/
 import SwiftUI
 import Combine
 

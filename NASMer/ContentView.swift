@@ -15,7 +15,6 @@ import Combine
 
 struct ContentView: View {
     
-    
     //这部分声明了要使用的变量
     
     //这俩是用于刷新组件而使用的
@@ -39,29 +38,6 @@ struct ContentView: View {
     @State var Openfilepath = DATAModel.NasmData.Openfilepath
     
     @State var ShellPath = DATAModel.NasmData.ShellPath
-    
-    
-    private func runShell(_ command: String, needAuthorize: Bool) -> (isSuccess: Bool, executeResult: String?) {
-        let scriptWithAuthorization = """
-        do shell script "\(command)" with administrator privileges
-        """
-        
-        let scriptWithoutAuthorization = """
-        do shell script "\(command)"
-        """
-        
-        let script = needAuthorize ? scriptWithAuthorization : scriptWithoutAuthorization
-        let appleScript = NSAppleScript(source: script)
-        
-        var error: NSDictionary? = nil
-        let result = appleScript!.executeAndReturnError(&error)
-        if let error = error {
-            commandresult = ("执行 \n\(command)\n命令出错:\n\(error)")
-            return (false, nil)
-        }
-        
-        return (true, result.stringValue)
-    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -142,15 +118,11 @@ struct ContentView: View {
                         {
                             commandresult = "Operation Cancel!"
                         }
-                    print(nasminside)
-                    self.show.toggle()
-                    print()
                     
                     //用来强制刷新SourceCodeTextEditor组件的
                     //我也不知道为啥必须使用一个关联的逻辑才能刷新那个组件，可能是那个组建的问题吧或者是
                     //苹果的View的刷新机制的问题吧，艹，简直恶心透了！！！
                     //这个组件千万不能删，删掉了就不能正常刷新了
-                    
                     if (showWindows == true){
                         showWindows = false
                     }else{
@@ -194,16 +166,12 @@ struct ContentView: View {
                 
                 
                 Button("导出编译文件"){
-                    let ShellCommand = "sudo nasm -f bin " + Openfilepath
-                    //runShell(["sudo -"])
-                    //runShell("chsh -s /bin/zsh")
-                    //runShell("sudo -s")
-                    //runShell("william")
-                    let Shelloutput = runShell(ShellCommand, needAuthorize: false)
-                    print(Shelloutput)
-                    //commandresult = String(Shelloutput)
-                    //NSAppleScript(source: "do shell script \"ShellCommand\" with administrator " + "privileges")!.executeAndReturnError(nil)
-                    //commandresult = runShell(["nasm","-f","bin",Openfilepath])
+                    
+                    //let ShellCommand = "nasm -f bin " + Openfilepath
+                    let ShellCommand = "ls"
+                    //这里只需要Shellout的内容，前两个的输出可以不用管
+                    let (isSuccess,result,Shelloutput) = runShell(ShellCommand, needAuthorize: false)
+                    commandresult = (result!)
                     if (showWindows == true){
                         showWindows = false
                     }else{
@@ -211,7 +179,6 @@ struct ContentView: View {
                     }
                 }
                 .keyboardShortcut("e", modifiers: [.command])
-                
             }
             .frame(width:670,alignment: .leading)
             
@@ -276,8 +243,6 @@ struct ContentView: View {
             
         }
         .frame(minWidth: 670, minHeight: 50,alignment:.leading)
-        //.padding()
-        //.frame(width: 450, height: 60, alignment: .leading)
     }
     
 }
