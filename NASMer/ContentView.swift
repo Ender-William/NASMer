@@ -8,9 +8,8 @@
 import Foundation
 import SwiftUI
 import Cocoa
-//import SavannaKit
-//import SourceEditor
 import Combine
+import UserNotifications
 
 
 struct ContentView: View {
@@ -177,6 +176,7 @@ struct ContentView: View {
                     }else{
                         showWindows = true
                     }
+                    
                 }
                 .keyboardShortcut("e", modifiers: [.command])
             }

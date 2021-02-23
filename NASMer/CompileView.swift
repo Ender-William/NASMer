@@ -29,7 +29,6 @@ struct DetailView_Previews: PreviewProvider {
     }
 }
 
-
 //编译格式选择器
 struct CompileFormatPicker: View {
     @State var CompileFormat:String = "" //Specifying the Output File Format
