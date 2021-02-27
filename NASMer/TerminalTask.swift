@@ -8,8 +8,9 @@
 import Foundation
 import Cocoa
 import Combine
+import ArgumentParser
 
-/*---------------------------------------------------------------------
+/*-------------------------------------------------------------
 *
 *   执行脚本命令
 *
@@ -20,17 +21,16 @@ import Combine
 *
 *   创建日期:2021-01-22
 *
----------------------------------------------------------------------*/
+-------------------------------------------------------------
 func runShell(_ command: String, needAuthorize: Bool) -> (isSuccess: Bool, executeResult: String?,commandreturn: String) {
     let scriptWithAuthorization = """
-    do shell script "\(command)" with administrator privileges
+    do shell script \"export PATH=\"/usr/local/bin:$PATH\";\(command)\" with administrator privileges
     """
     
-    let scriptWithoutAuthorization = """
-    do shell script "\(command)"
-    """
+    let scriptWithoutAuthorization =  "do shell script \(command)"
     
     let script = needAuthorize ? scriptWithAuthorization : scriptWithoutAuthorization
+    NSAppleScript(source: "do shell script \"export PATH=\"/usr/local/bin:$PATH\"\"")
     let appleScript = NSAppleScript(source: script)
     
     var error: NSDictionary? = nil
@@ -41,4 +41,28 @@ func runShell(_ command: String, needAuthorize: Bool) -> (isSuccess: Bool, execu
     }
     
     return (true, result.stringValue, "Compile Finish")
+}*/
+
+
+func runShell(_ command: String) -> String {
+    let launch_path = DATAModel.NasmData.nasmcompath
+    //let launch_path = DATAModel.NasmData.ShellPath
+    
+    let task = Process()
+    let pipe = Pipe()
+    
+    task.standardOutput = pipe
+    task.standardError = pipe
+    task.arguments = ["nasm -f bin",command]
+    task.launchPath = launch_path
+    
+    //task.arguments = ["-c",command]
+    //task.launchPath = launch_path
+    task.launch()
+    
+    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+    let output = String(data: data, encoding: .utf8)!
+    
+    return output
 }
+

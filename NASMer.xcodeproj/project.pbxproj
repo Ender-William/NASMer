@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,8 @@
 		AB541B0325C16A1500ECEBE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB541B0225C16A1500ECEBE2 /* ContentView.swift */; };
 		AB541B0525C16A1600ECEBE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0425C16A1600ECEBE2 /* Assets.xcassets */; };
 		AB541B0825C16A1600ECEBE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */; };
+		ABC9F1D825E970050058EE1F /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = ABC9F1D725E970050058EE1F /* ArgumentParser */; };
+		ABC9F1DC25E9718D0058EE1F /* SwiftShell in Frameworks */ = {isa = PBXBuildFile; productRef = ABC9F1DB25E9718D0058EE1F /* SwiftShell */; };
 		ABE5B4FA25D97B2E005DA2B4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */; };
 		ABF87D0525E4E6290049351F /* CompileSettingWindowConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF87D0425E4E6290049351F /* CompileSettingWindowConfig.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC9F1D825E970050058EE1F /* ArgumentParser in Frameworks */,
+				ABC9F1DC25E9718D0058EE1F /* SwiftShell in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +249,10 @@
 			dependencies = (
 			);
 			name = NASMer;
+			packageProductDependencies = (
+				ABC9F1D725E970050058EE1F /* ArgumentParser */,
+				ABC9F1DB25E9718D0058EE1F /* SwiftShell */,
+			);
 			productName = NASMer;
 			productReference = AB541AFD25C16A1500ECEBE2 /* NASMer.app */;
 			productType = "com.apple.product-type.application";
@@ -273,6 +281,10 @@
 				Base,
 			);
 			mainGroup = AB541AF425C16A1500ECEBE2;
+			packageReferences = (
+				ABC9F1D625E970050058EE1F /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+				ABC9F1DA25E9718D0058EE1F /* XCRemoteSwiftPackageReference "SwiftShell" */,
+			);
 			productRefGroup = AB541AFE25C16A1500ECEBE2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -527,6 +539,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABC9F1D625E970050058EE1F /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
+		ABC9F1DA25E9718D0058EE1F /* XCRemoteSwiftPackageReference "SwiftShell" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kareman/SwiftShell.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABC9F1D725E970050058EE1F /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABC9F1D625E970050058EE1F /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+		ABC9F1DB25E9718D0058EE1F /* SwiftShell */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABC9F1DA25E9718D0058EE1F /* XCRemoteSwiftPackageReference "SwiftShell" */;
+			productName = SwiftShell;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB541AF525C16A1500ECEBE2 /* Project object */;
 }

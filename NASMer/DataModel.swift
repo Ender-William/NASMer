@@ -14,7 +14,7 @@ class DATAModel{
         static let show = false
 
         //NASM编译器路径
-        static let nasmcompath:String = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
+        static let nasmcompath:String = "/usr/local/bin/nasm"
 
         //nasm文件的内容
         static let nasminside = ";////可以愉快地在这里写汇编了\n;////本软件使用的编译器是NASM\n;////编码格式为UTF-8"
@@ -39,8 +39,8 @@ class DATAModel{
         //调用nasm编译器的shell命令
         static let ShellCommand = ""
         
-        static let ShellPath = "/bin/bash"
-        //static let ShellPath = "/usr/local/bin/nasm"
+        //static let ShellPath = "/bin/bash"
+        static let ShellPath = "/usr/local/bin/nasm"
         //static let ShellPath = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
     }
     

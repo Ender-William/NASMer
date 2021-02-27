@@ -14,6 +14,8 @@ import UserNotifications
 
 struct ContentView: View {
     
+    @State var isRunning = false
+    
     //这部分声明了要使用的变量
     
     //这俩是用于刷新组件而使用的
@@ -166,17 +168,25 @@ struct ContentView: View {
                 
                 Button("导出编译文件"){
                     
-                    //let ShellCommand = "nasm -f bin " + Openfilepath
-                    let ShellCommand = "ls"
-                    //这里只需要Shellout的内容，前两个的输出可以不用管
+                    let ShellCommand = Openfilepath
+                    print(Openfilepath)
+                    /*
                     let (isSuccess,result,Shelloutput) = runShell(ShellCommand, needAuthorize: false)
-                    commandresult = (result!)
+                    commandresult = (Shelloutput)*/
+                    //commandresult = runShell("sudo su")
+                    commandresult = runShell(ShellCommand)
+                    
+                    
+                    //isRunning = true
+                    /*
+                    let executableURL = URL(fileURLWithPath: "/Macintosh/usr/local/bin/nasm")
+                    try!Process.run(executableURL,arguments: [ShellCommand],terminationHandler: { _ in isRunning = false})*/
+                    
                     if (showWindows == true){
                         showWindows = false
                     }else{
                         showWindows = true
                     }
-                    
                 }
                 .keyboardShortcut("e", modifiers: [.command])
             }
