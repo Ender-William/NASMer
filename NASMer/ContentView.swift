@@ -168,7 +168,7 @@ struct ContentView: View {
                 
                 Button("导出编译文件"){
                     
-                    let ShellCommand = Openfilepath
+                    let ShellCommand = String(Openfilepath)
                     print(Openfilepath)
                     /*
                     let (isSuccess,result,Shelloutput) = runShell(ShellCommand, needAuthorize: false)
