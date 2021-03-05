@@ -53,11 +53,8 @@ func runShell(_ command: String) -> String {
     
     task.standardOutput = pipe
     task.standardError = pipe
-    task.arguments = ["nasm -f bin",command]
+    task.arguments = ["-f","bin",command,"-o","/Users/william/Desktop/iplaaaaccc.bin"]
     task.launchPath = launch_path
-    
-    //task.arguments = ["-c",command]
-    //task.launchPath = launch_path
     task.launch()
     
     let data = pipe.fileHandleForReading.readDataToEndOfFile()
