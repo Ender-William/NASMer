@@ -20,6 +20,7 @@ struct ContentView: View {
     
     //这俩是用于刷新组件而使用的
     @State var show = DATAModel.NasmData.show
+    
     @State var showWindows = DATAModel.NasmData.showWindows
     
     //NASM编译器路径
@@ -40,6 +41,7 @@ struct ContentView: View {
     
     @State var ShellPath = DATAModel.NasmData.ShellPath
     
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center){
@@ -58,7 +60,10 @@ struct ContentView: View {
                     }else{
                         showWindows = true
                     }
+                    
                 }
+                .allowsHitTesting(false)
+                
                 
                 
                 Button("\(self.show ? "打开文件":"打开文件")"){
@@ -84,7 +89,6 @@ struct ContentView: View {
                             if let url = URL.init(string: TheFile) {
                                 if fileManager.fileExists(atPath: url.path) {
                                     let txtData = fileManager.contents(atPath: url.path)
-                                    //var dataArray:[[Substring]] = []
                                     if txtData == nil {
                                         //return nil
                                         commandresult = "nil !"
@@ -101,9 +105,9 @@ struct ContentView: View {
                                         var printPath = TheFile
                                         printPath.removeFirst(7)
                                         commandresult = DATAModel.CommandResult.OpenFilePath + printPath
-                                        //Openfilepath = TheFile
                                         Openfilepath = printPath
-                                        //print(dataArray)
+                                        printPath.removeLast(3)
+                                        nasmcomoutputpath = printPath
                                         
                                     }else{
                                         commandresult = "Format error"
@@ -169,18 +173,10 @@ struct ContentView: View {
                 Button("导出编译文件"){
                     
                     let ShellCommand = String(Openfilepath)
+                    let outputpath = String(nasmcomoutputpath) + "bin"
                     print(Openfilepath)
-                    /*
-                    let (isSuccess,result,Shelloutput) = runShell(ShellCommand, needAuthorize: false)
-                    commandresult = (Shelloutput)*/
-                    //commandresult = runShell("sudo su")
-                    commandresult = runShell(ShellCommand)
-                    
-                    
-                    //isRunning = true
-                    /*
-                    let executableURL = URL(fileURLWithPath: "/Macintosh/usr/local/bin/nasm")
-                    try!Process.run(executableURL,arguments: [ShellCommand],terminationHandler: { _ in isRunning = false})*/
+              
+                    commandresult = runShell(ShellCommand,outputpath)
                     
                     if (showWindows == true){
                         showWindows = false
@@ -188,7 +184,7 @@ struct ContentView: View {
                         showWindows = true
                     }
                 }
-                .keyboardShortcut("e", modifiers: [.command])
+                .keyboardShortcut("e", modifiers: [.command])//快捷键 Command + E 来完成编译
             }
             .frame(width:670,alignment: .leading)
             
@@ -217,6 +213,8 @@ struct ContentView: View {
                     
                 }
             }
+            
+            
             //SourceCodeTextEditor组件，用来输入程序源码的部分
             //这个组件是使用开源文本编辑软件中的一部分，用来显示具体的程序行数以及语法高亮
             //原程序中只有Java，JS，Python以及Swift语言的高亮格式
