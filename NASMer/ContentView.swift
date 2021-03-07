@@ -51,7 +51,8 @@ struct ContentView: View {
     //---------------------------------------------------
     
     
-/*------------------------变量声明结束------------------------*/
+/*-------------------------变量声明结束-------------------------*/
+
     
     
     
@@ -59,11 +60,13 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .center){
                 
+                //这个就是主界面的那个没有啥实际用途的标题
                 Text("Hello, Assembly World！")
                     .font(.largeTitle)
                     .foregroundColor(.blue)
                 
                 
+                //打开编译方法的设定页面
                 Button("编译前的设定"){
                     //用来显示一个新的窗口——编译方法设置的一个新窗口
                     let detailView = CompileView()
@@ -83,7 +86,7 @@ struct ContentView: View {
                 
                 
                 
-                
+                //完成打开界面 ，使用NSOpenPanel组件来完成
                 Button("\(self.show ? "打开文件":"打开文件")"){
                     
                     let ASMOpener: NSOpenPanel = NSOpenPanel()
@@ -93,7 +96,7 @@ struct ContentView: View {
                         ASMOpener.canChooseDirectories = false
                         ASMOpener.resolvesAliases = true
                         ASMOpener.title = "打开文件"
-                        ASMOpener.allowedFileTypes = ["asm","nas"]
+                        ASMOpener.allowedFileTypes = ["asm","nas"]//可以读取这几种格式的asm文件
                         ASMOpener.runModal()
                     let chosenfile = ASMOpener.url
                         if (chosenfile != nil)
@@ -163,7 +166,7 @@ struct ContentView: View {
                 
                 
                 
-                
+                //完成保存任务，使用NSSavePanel组件来完成操作
                 Button("保存"){
                     let ASMSaver:NSSavePanel = NSSavePanel()
                         ASMSaver.prompt = "Save"
@@ -176,8 +179,8 @@ struct ContentView: View {
                     let chosenfile = ASMSaver.url
                     if (chosenfile != nil){
                         var Saver = chosenfile!.absoluteString //选择后的文件地址
-                        Saver.removeFirst(7)
-                        print(Saver)
+                        Saver.removeFirst(7)//同样得要移除”file://“这个东西，不然是保存不了的特别神奇
+                        //print(Saver)
                         do {
                             try nasminside.write(toFile: Saver, atomically: true, encoding: String.Encoding.utf8)
                             commandresult = "Save Successful"
@@ -212,7 +215,7 @@ struct ContentView: View {
                 }
                 .keyboardShortcut("e", modifiers: [.command])//快捷键 Command + E 来完成编译
             }
-            .frame(width:670,alignment: .leading)
+            .frame(width:670,alignment: .leading)//定义这个组件的宽为670px
             
             
             
@@ -267,7 +270,7 @@ struct ContentView: View {
             
             
         
-            TextEditor(text: .constant(commandresult)) //使用了text: .constant()可以有效地禁止编辑TextEditor的内容
+            TextEditor(text: .constant(commandresult)) //使用了text: .constant(String)可以有效地禁止编辑TextEditor的内容
                 .frame(width: 670, height:70 ,alignment:.center)
                 .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                 .foregroundColor(.white)
@@ -290,5 +293,3 @@ struct ContentView_Previews: PreviewProvider  {
             .previewDisplayName("NASMer")
     }
 }
-
-

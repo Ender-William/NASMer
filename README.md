@@ -1,5 +1,29 @@
 [TOC]
 
+----
+
+# NASMer 下载地址
+
+## [![standard-readme compliant](https://img.shields.io/badge/Beta%20Version-V0.5-brightgreen.svg?style=flat-square)](https://pan.baidu.com/s/1U9E2gp7lEYuUJZobry6Bdw)NASMer V0.5版本下载地址及版本说明
+
+
+
+链接:https://pan.baidu.com/s/1U9E2gp7lEYuUJZobry6Bdw   提取码:5fef
+
+系统版本适配：macOS Big Sur （装配有Intel芯片的Mac电脑）
+
+适配的NASM版本：NASM 2.15.03
+
+支持的汇编文件格式：asm  nas
+
+支持的编译格式：macho64
+
+支持的导出文件的格式：bin
+
+版本说明：这个版本算是个Beta版本，很多功能都不太完善，只支持编辑、编译单个文件，后续我还会根据使用情况来进行更新
+
+***PS：这个软件是我用Swift写的第一个软件，是零基础开始写的，一边学一边写，还有很多的不足，望各位大佬可以帮忙来改进这个软件。说一下为什么我要写这个软件，我发现Mac平台没有一个很令我满意的Assembly编辑器，其他的编辑器的功能太多了太复杂了，不够专一，所以我就想写这个软件来进行汇编开发。还希望各位可以来进行改进！！！***
+
 ---
 
 # NASMer GitHub文件结构关键内容说明
@@ -33,18 +57,20 @@
 > > CompileSettingWindowConfig.swift
 > >
 > > DataModel.swift
+> >
+> > TerminalTask.swift
 >
 > Products
 
 ---
 
-## AssemblyLexer.swift
+# AssemblyLexer.swift
 
 AssemblyLexer.swift 文件里面包含了有关Assembly语言的关键文字，高亮组件会根据这个文件的内容对ASM代码进行高亮标注。
 
 ---
 
-## DefaultSourceCodeTheme.swift
+# DefaultSourceCodeTheme.swift
 
 Themes中的DefaultSourceCodeTheme.swift文件里面包含了各类关键字的高亮颜色定义组件
 
@@ -74,7 +100,7 @@ case extensionCode
 
 ---
 
-### 》在已有的语法高亮文件中添加
+## 》在已有的语法高亮文件中添加
 
 在==**lazy** **var** generators: [TokenGenerator] = {......}==代码段中var generators = [TokenGenerator?]() `之后另起新行添加如下代码
 
@@ -98,7 +124,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 
 具体的正则表达式的内容如下
 
-#### 基本字符 (单个字符)
+### 基本字符 (单个字符)
 
 - 不需要转义的字符
 
@@ -116,7 +142,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 |  双反斜杠转义 『\\』  | $^*()-=+[{]}\|.？ |
 | 三反斜杠转义 『\\\\』 |         \         |
 
-#### 元字符 (单类字符)
+### 元字符 (单类字符)
 
 | 符号 |                         类别                          |
 | :--: | :---------------------------------------------------: |
@@ -130,7 +156,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 | \\t  |                        制表符                         |
 | \\v  |                      垂直制表符                       |
 
-#### 反义(元字)符
+### 反义(元字)符
 
 | 符号 |             类别              |
 | :--: | :---------------------------: |
@@ -139,11 +165,11 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 | \\D  |          非数字字符           |
 |  ^   | 非后接的字符,可同时接多个字符 |
 
-#### 限定字符
+### 限定字符
 
 - 接在字符或字符表达式后以对其进行限定修饰
 
-##### 贪婪限定字符
+#### 贪婪限定字符
 
 - 当匹配符合多种情况时优先字符数多的情况
   字符串 ："123456789"
@@ -159,7 +185,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 |   {n,}   |  重复单字符或表达式n次以上（包括n次）  |
 |  {n,m}   |        重复单字符或表达式n到m次        |
 
-##### 懒惰限定符
+#### 懒惰限定符
 
 - 当匹配符合多种情况时优先字符数少的情况
   字符串 ："123456789"
@@ -174,7 +200,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 |  {n,}?   |  重复单字符或表达式n次以上（包括n次）  |
 |  {n,m}?  |        重复单字符或表达式n到m次        |
 
-#### 定位符
+### 定位符
 
 | **符号** |        **意义**        |
 | :------: | :--------------------: |
@@ -183,7 +209,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 |   \\b    |     单词开始或结束     |
 |   \\B    | 非单词开头或结束的字符 |
 
-#### 连接符
+### 连接符
 
 | **符号** |                **意义**                 |
 | :------: | :-------------------------------------: |
@@ -191,7 +217,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 |    ,     |     用于连接两个字符,可理解为『或』     |
 |    -     |           用于选取一个字符域            |
 
-#### 分隔符
+### 分隔符
 
 - 对单个字符或表达式等进行分隔
 
@@ -201,7 +227,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 |    ()    | 表达式分隔符 ：对表达式进行分隔 |
 |    {}    | 限定符分隔符 ：对限定符进行分隔 |
 
-#### 正则实例
+### 正则实例
 
 - 2到6位字母或数字组成的字符串
 
@@ -221,7 +247,7 @@ generators.append(regexGenerator(KeyWordsInAssembly, tokenType: .identifier))
 | :--: | :---------------: | :----------------------------: | :--: | :-----------------------------: | :--------------: | :--: |
 |  首  | 0位以上数字或字母 | 0次以上(-_.+0位以上数字或字母) |  @   | 0次以上(0次以上数字或字母 + -.) | 2到4位数字或字母 |  尾  |
 
-#### 代码书写
+### 代码书写
 
 ```swift
 /// 帐号
@@ -244,7 +270,7 @@ if let results = regex?.matches(in: acount, options: [], range: NSRange(location
 
 ---
 
-### 》新添加编程语言的语法高亮文件
+## 》新添加编程语言的语法高亮文件
 
 1. 首先需要在Language文件夹内新建一个Swift文件，文件要统一命名为`LanguageName+Lexer.swift` 这种形式
 
@@ -285,7 +311,7 @@ public class LanguageLexer: SourceCodeRegexLexer {
 
 ---
 
-## ContentView.swift
+# ContentView.swift
 
 ```swift
 //这俩是用于刷新组件而使用的
@@ -307,7 +333,7 @@ public class LanguageLexer: SourceCodeRegexLexer {
 
 我还没想好这里到底应该要怎么做，好多的组件我还没有搞明白，所以这些个变量后期我还会改。
 
-### 打开新窗口
+## 打开新窗口
 
 这里先给放出一个我参考的代码样例:
 

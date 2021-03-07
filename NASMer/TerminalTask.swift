@@ -26,8 +26,6 @@ import ArgumentParser
 
 func runShell(_ command: String,_ outputpath: String) -> String {
     let launch_path = DATAModel.NasmData.nasmcompath
-    //let launch_path = DATAModel.NasmData.ShellPath
-    
     let task = Process()
     let pipe = Pipe()
     
