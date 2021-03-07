@@ -14,32 +14,45 @@ import UserNotifications
 
 struct ContentView: View {
     
-    @State var isRunning = false
+/*--------------------这部分声明了要使用的变量--------------------*/
     
-    //这部分声明了要使用的变量
-    
-    //这俩是用于刷新组件而使用的
+    //这俩是用于刷新组件而使用的--------------------------------
     @State var show = DATAModel.NasmData.show
-    
     @State var showWindows = DATAModel.NasmData.showWindows
+    //-----------------------------------------------------
     
-    //NASM编译器路径
+    
+    //NASM编译器路径-----------------------------------------
     @State var nasmcompath = DATAModel.NasmData.nasmcompath
-    
-    //
-    @State var filename = DATAModel.NasmData.filename
-    
-    //nasm文件的内容
-    @State var nasminside = DATAModel.NasmData.nasminside
-
-    @State var commandresult = DATAModel.NasmData.commandresult
-    
-    @State var nasmcomoutputpath = DATAModel.NasmData.nasmcomoutputpath
-    
-    //文件地址
-    @State var Openfilepath = DATAModel.NasmData.Openfilepath
-    
     @State var ShellPath = DATAModel.NasmData.ShellPath
+    //-----------------------------------------------------
+    
+    
+    //打开文件后的具体文件地址，包含file://的具体文件路径----------
+    @State var filename = DATAModel.NasmData.filename
+    //-----------------------------------------------------
+    //打开文件后的具体文件地址，不包含file://的文件路径------------
+    @State var Openfilepath = DATAModel.NasmData.Openfilepath
+    //-----------------------------------------------------
+    
+    
+    //编辑区域的内容----------------------------------------
+    @State var nasminside = DATAModel.NasmData.nasminside
+    //----------------------------------------------------
+
+    
+    //用来反馈操作结果的变量----------------------------------
+    @State var commandresult = DATAModel.NasmData.commandresult
+    //----------------------------------------------------
+    
+    
+    //编译完成后的文件输出地址--------------------------------
+    @State var nasmcomoutputpath = DATAModel.NasmData.nasmcomoutputpath
+    //---------------------------------------------------
+    
+    
+/*------------------------变量声明结束------------------------*/
+    
     
     
     var body: some View {
@@ -50,11 +63,15 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .foregroundColor(.blue)
                 
+                
                 Button("编译前的设定"){
+                    //用来显示一个新的窗口——编译方法设置的一个新窗口
                     let detailView = CompileView()
                     let controller = DetailWC(rootView: detailView)
                     controller.window?.title = "NASMer - How to Compile"
                     controller.showWindow(nil)
+                    
+                    //刷新组件
                     if (showWindows == true){
                         showWindows = false
                     }else{
@@ -62,7 +79,8 @@ struct ContentView: View {
                     }
                     
                 }
-                .allowsHitTesting(false)
+                .allowsHitTesting(false)//用来禁止用户操作此按钮，等待功能完善之后再开放
+                
                 
                 
                 
@@ -81,38 +99,44 @@ struct ContentView: View {
                         if (chosenfile != nil)
                         {
                             let TheFile = chosenfile!.absoluteString //选择后的文件地址
-                            
-                            print(TheFile)
+                            //print(TheFile)  //在控制台输出文件地址方便调试
                             filename = TheFile
                             
                             let fileManager = FileManager.default
                             if let url = URL.init(string: TheFile) {
                                 if fileManager.fileExists(atPath: url.path) {
+                                    //文件存在
                                     let txtData = fileManager.contents(atPath: url.path)
+                                    //如果打开的文件内没有内容，则反馈"空"
                                     if txtData == nil {
                                         //return nil
                                         commandresult = "nil !"
                                     }
-                                    print(txtData as Any)
+                                    //print(txtData as Any) //在控制台输出文件内容，方便调试
                                     //print(txtData!.availableStringEncodings)
+                                    
                                     let readString = String(data: txtData!, encoding: String.Encoding.utf8)
+                                    
                                     if readString != nil{
+                                        //如果解码后的文件内容不为空
+                                        //print("readString: \(String(describing: readString))")
+                                        nasminside = String(readString!)//使编辑区域显示解码后的内容
+                                        //print("nasminside: \(nasminside)")
+                                        commandresult = "Read Successful!"//反馈“读取成功”
                                         
-                                        print("readString: \(String(describing: readString))")
-                                        nasminside = String(readString!)
-                                        print("nasminside: \(nasminside)")
-                                        commandresult = "Read Successful!"
                                         var printPath = TheFile
-                                        printPath.removeFirst(7)
-                                        commandresult = DATAModel.CommandResult.OpenFilePath + printPath
+                                        printPath.removeFirst(7)// 移除"file://"
+                                        //commandresult = DATAModel.CommandResult.OpenFilePath + printPath
                                         Openfilepath = printPath
-                                        printPath.removeLast(3)
-                                        nasmcomoutputpath = printPath
+                                        printPath.removeLast(3)// 移除文件后缀asm，方便导出编译文件重新定义输出文件格式
+                                        nasmcomoutputpath = printPath //定义该文件内容的输出地址
                                         
                                     }else{
+                                        //如果解码后的内容为空，则反馈“编码格式错误”
                                         commandresult = "Format error"
                                     }
                                 }else {
+                                    //文件不存在
                                     print("Path loss file is not exists")
                                     //return nil
                                 }
@@ -121,12 +145,13 @@ struct ContentView: View {
                         }
                         else
                         {
+                            //用户如果点击取消打开文件，则反馈“操作取消”
                             commandresult = "Operation Cancel!"
                         }
                     
                     //用来强制刷新SourceCodeTextEditor组件的
                     //我也不知道为啥必须使用一个关联的逻辑才能刷新那个组件，可能是那个组建的问题吧或者是
-                    //苹果的View的刷新机制的问题吧，艹，简直恶心透了！！！
+                    //苹果的View的刷新机制的问 题吧，艹，简直恶心透了！！！
                     //这个组件千万不能删，删掉了就不能正常刷新了
                     if (showWindows == true){
                         showWindows = false
@@ -134,13 +159,13 @@ struct ContentView: View {
                         showWindows = true
                     }
                 }
-                .keyboardShortcut("o", modifiers: [.command])
+                .keyboardShortcut("o", modifiers: [.command])//Command + O 来快捷打开文件
                 
                 
                 
                 
                 Button("保存"){
-                    let ASMSaver: NSSavePanel = NSSavePanel()
+                    let ASMSaver:NSSavePanel = NSSavePanel()
                         ASMSaver.prompt = "Save"
                         ASMSaver.worksWhenModal = true
                         ASMSaver.title = "保存文件"
@@ -151,10 +176,8 @@ struct ContentView: View {
                     let chosenfile = ASMSaver.url
                     if (chosenfile != nil){
                         var Saver = chosenfile!.absoluteString //选择后的文件地址
-                        
                         Saver.removeFirst(7)
                         print(Saver)
-                        
                         do {
                             try nasminside.write(toFile: Saver, atomically: true, encoding: String.Encoding.utf8)
                             commandresult = "Save Successful"
@@ -172,12 +195,15 @@ struct ContentView: View {
                 
                 Button("导出编译文件"){
                     
-                    let ShellCommand = String(Openfilepath)
+                    let ShellCommand = String(Openfilepath)//这里是文件的路径，导出前必须得要先保存一下
                     let outputpath = String(nasmcomoutputpath) + "bin"
-                    print(Openfilepath)
+                    //这里得要解释一下为啥后面要加上bin，因为nasmcomoutputpath这个里面的格式是这个样子的
+                    // "/path/path/path/filename."，所以是没有保存格式的，这里的bin就是导出的文件格式
+                    //print(Openfilepath)
               
-                    commandresult = runShell(ShellCommand,outputpath)
+                    commandresult = runShell(ShellCommand,outputpath)//得到操作结果，如果啥都没有就是说明导出成功
                     
+                    //老样子是刷新组件用的
                     if (showWindows == true){
                         showWindows = false
                     }else{

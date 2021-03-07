@@ -39,9 +39,8 @@ class DATAModel{
         //调用nasm编译器的shell命令
         static let ShellCommand = ""
         
-        //static let ShellPath = "/bin/bash"
         static let ShellPath = "/usr/local/bin/nasm"
-        //static let ShellPath = "/usr/local/Cellar/nasm/2.15.05/bin/nasm"
+        
     }
     
     
