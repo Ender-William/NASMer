@@ -36,7 +36,7 @@ struct ContentView: View {
     //-----------------------------------------------------
     
     
-    //编辑区域的内容----------------------------------------
+    //编辑区域的内容-----------------------------------------
     @State var nasminside = DATAModel.NasmData.nasminside
     //----------------------------------------------------
 
@@ -52,9 +52,6 @@ struct ContentView: View {
     
     
 /*-------------------------变量声明结束-------------------------*/
-
-    
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -283,6 +280,7 @@ struct ContentView: View {
     }
     
 }
+
 
 
 struct ContentView_Previews: PreviewProvider  {

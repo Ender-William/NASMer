@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1BCB7D2600A08A003ECC90 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 3D1BCB7B2600A08A003ECC90 /* Preview Content */; };
+		3D9139FA25FE181000282A76 /* SettingData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D9139F825FE181000282A76 /* SettingData.xcdatamodeld */; };
 		AB21BF2225C5A7DA0053DA96 /* CompileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21BF2125C5A7DA0053DA96 /* CompileView.swift */; };
 		AB21F43A25DC7E15006A5236 /* SourceCodeRegexLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21F41925DC7E15006A5236 /* SourceCodeRegexLexer.swift */; };
 		AB21F43B25DC7E15006A5236 /* String+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21F41B25DC7E15006A5236 /* String+Range.swift */; };
@@ -38,8 +40,6 @@
 		AB21F45C25E0FEDF006A5236 /* TerminalTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB21F45B25E0FEDF006A5236 /* TerminalTask.swift */; };
 		AB541B0125C16A1500ECEBE2 /* NASMerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */; };
 		AB541B0325C16A1500ECEBE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB541B0225C16A1500ECEBE2 /* ContentView.swift */; };
-		AB541B0525C16A1600ECEBE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0425C16A1600ECEBE2 /* Assets.xcassets */; };
-		AB541B0825C16A1600ECEBE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */; };
 		ABC9F1D825E970050058EE1F /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = ABC9F1D725E970050058EE1F /* ArgumentParser */; };
 		ABC9F1DC25E9718D0058EE1F /* SwiftShell in Frameworks */ = {isa = PBXBuildFile; productRef = ABC9F1DB25E9718D0058EE1F /* SwiftShell */; };
 		ABE5B4FA25D97B2E005DA2B4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */; };
@@ -47,6 +47,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D1BCB7B2600A08A003ECC90 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
+		3D1BCB852600A11F003ECC90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D9139F925FE181000282A76 /* SettingData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SettingData.xcdatamodel; sourceTree = "<group>"; };
 		AB21BF2125C5A7DA0053DA96 /* CompileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileView.swift; sourceTree = "<group>"; };
 		AB21F41925DC7E15006A5236 /* SourceCodeRegexLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeRegexLexer.swift; sourceTree = "<group>"; };
 		AB21F41B25DC7E15006A5236 /* String+Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Range.swift"; sourceTree = "<group>"; };
@@ -79,8 +82,6 @@
 		AB541AFD25C16A1500ECEBE2 /* NASMer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NASMer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB541B0025C16A1500ECEBE2 /* NASMerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASMerApp.swift; sourceTree = "<group>"; };
 		AB541B0225C16A1500ECEBE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AB541B0425C16A1600ECEBE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB541B0925C16A1600ECEBE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB541B0A25C16A1600ECEBE2 /* NASMer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NASMer.entitlements; sourceTree = "<group>"; };
 		ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -215,22 +216,15 @@
 				AB541B0225C16A1500ECEBE2 /* ContentView.swift */,
 				ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */,
 				AB21BF2125C5A7DA0053DA96 /* CompileView.swift */,
-				AB541B0425C16A1600ECEBE2 /* Assets.xcassets */,
 				AB541B0925C16A1600ECEBE2 /* Info.plist */,
+				3D1BCB852600A11F003ECC90 /* Assets.xcassets */,
+				3D1BCB7B2600A08A003ECC90 /* Preview Content */,
 				AB541B0A25C16A1600ECEBE2 /* NASMer.entitlements */,
-				AB541B0625C16A1600ECEBE2 /* Preview Content */,
 				ABF87D0425E4E6290049351F /* CompileSettingWindowConfig.swift */,
 				AB21F45B25E0FEDF006A5236 /* TerminalTask.swift */,
+				3D9139F825FE181000282A76 /* SettingData.xcdatamodeld */,
 			);
 			path = NASMer;
-			sourceTree = "<group>";
-		};
-		AB541B0625C16A1600ECEBE2 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				AB541B0725C16A1600ECEBE2 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB541B0825C16A1600ECEBE2 /* Preview Assets.xcassets in Resources */,
-				AB541B0525C16A1600ECEBE2 /* Assets.xcassets in Resources */,
+				3D1BCB7D2600A08A003ECC90 /* Preview Content in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +326,7 @@
 				AB21F45225DC7E15006A5236 /* SourceCodeToken.swift in Sources */,
 				AB21F45425DC7E15006A5236 /* SourceCodeTextEditor.swift in Sources */,
 				AB21F43E25DC7E15006A5236 /* NSMutableAttributedString+Tokens.swift in Sources */,
+				3D9139FA25FE181000282A76 /* SettingData.xcdatamodeld in Sources */,
 				AB21F44825DC7E15006A5236 /* Token.swift in Sources */,
 				AB21F44F25DC7E15006A5236 /* SyntaxTextViewLayoutManager.swift in Sources */,
 				AB21F44A25DC7E15006A5236 /* SyntaxTextView.swift in Sources */,
@@ -571,6 +565,19 @@
 			productName = SwiftShell;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		3D9139F825FE181000282A76 /* SettingData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D9139F925FE181000282A76 /* SettingData.xcdatamodel */,
+			);
+			currentVersion = 3D9139F925FE181000282A76 /* SettingData.xcdatamodel */;
+			path = SettingData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AB541AF525C16A1500ECEBE2 /* Project object */;
 }
