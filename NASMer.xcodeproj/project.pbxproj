@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		3D1BCB7B2600A08A003ECC90 /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preview Content"; sourceTree = "<group>"; };
-		3D1BCB852600A11F003ECC90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D39DA3726019D3D00E91E86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9139F925FE181000282A76 /* SettingData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SettingData.xcdatamodel; sourceTree = "<group>"; };
 		AB21BF2125C5A7DA0053DA96 /* CompileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompileView.swift; sourceTree = "<group>"; };
 		AB21F41925DC7E15006A5236 /* SourceCodeRegexLexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceCodeRegexLexer.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				ABE5B4F925D97B2E005DA2B4 /* DataModel.swift */,
 				AB21BF2125C5A7DA0053DA96 /* CompileView.swift */,
 				AB541B0925C16A1600ECEBE2 /* Info.plist */,
-				3D1BCB852600A11F003ECC90 /* Assets.xcassets */,
+				3D39DA3726019D3D00E91E86 /* Assets.xcassets */,
 				3D1BCB7B2600A08A003ECC90 /* Preview Content */,
 				AB541B0A25C16A1600ECEBE2 /* NASMer.entitlements */,
 				ABF87D0425E4E6290049351F /* CompileSettingWindowConfig.swift */,
